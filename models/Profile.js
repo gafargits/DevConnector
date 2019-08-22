@@ -24,9 +24,9 @@ const profileSchema = new Schema({
     status: {
         type: String,
         required: true
-    }, 
+    },
     skills: {
-        type: [String],
+        type: [String], //An array of strings
         required: true
     },
     bio: {
@@ -36,13 +36,13 @@ const profileSchema = new Schema({
     githubusername: {
         type: String
     },
-    experience: [
+    experience: [ //Note the declaration of array of strings here
         {
             title: {
                 type: String,
                 required: true
             },
-             company: {
+            company: {
                 type: String,
                 required: true
             },
@@ -59,29 +59,30 @@ const profileSchema = new Schema({
             current: {
                 type: Boolean,
                 default: false
-            }, 
+            },
             description: {
                 type: String
             }
         }
 
-     ], 
-     education: [
+    ],
+    education: [
         {
             school: {
                 type: String,
                 required: true
             },
-             degree: {
+            degree: {
                 type: String,
                 required: true
             },
             fieldOfStudy: {
                 type: String,
-                required: true
+                // required: true
             },
             from: {
                 type: Date,
+                // default: Date.now,
                 required: true
             },
             to: {
@@ -90,18 +91,18 @@ const profileSchema = new Schema({
             current: {
                 type: Boolean,
                 default: false
-            }, 
+            },
             description: {
                 type: String
             }
         }
 
-     ],
-     social: {
-         youtube: {
-             type: String
-         },
-         twitter: {
+    ],
+    social: {
+        youtube: {
+            type: String
+        },
+        twitter: {
             type: String
         },
         facebook: {
@@ -113,12 +114,12 @@ const profileSchema = new Schema({
         instagram: {
             type: String
         },
-        Date: {
+        date: {
             type: Date,
             default: Date.now
         }
-     }
-    
+    }
+
 })
 
 module.exports = Profile = mongoose.model('profile', profileSchema)
